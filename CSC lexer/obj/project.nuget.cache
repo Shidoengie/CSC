@@ -1,10 +1,14 @@
 {
   "version": 2,
-  "dgSpecHash": "1tZPIeMyhQuxVIR7B/bSOxmpajFuqTVcTKSiI3z97GMA5IqpU86YFTOIPN4NlO2QyoXU6y+DnTfaxZygS16D0w==",
+  "dgSpecHash": "swkclDXLJIUWICSjHAx7GsaFWV10VVQdsEmUFCN7CXJ9y9r3maiUGiuXPq21+Juil5JT4Z3wROf7dwwIUbQBEA==",
   "success": true,
-  "projectFilePath": "C:\\Users\\ruiqw\\source\\repos\\CSC lexer\\CSC lexer\\CSC lexer.csproj",
+  "projectFilePath": "C:\\Users\\AEPBS\\Documents\\GitHub\\CSC\\CSC lexer\\CSC lexer.csproj",
   "expectedPackageFiles": [
-    "C:\\Users\\ruiqw\\.nuget\\packages\\yamldotnet\\11.2.1\\yamldotnet.11.2.1.nupkg.sha512"
+    "C:\\Users\\AEPBS\\.nuget\\packages\\yamldotnet\\11.2.1\\yamldotnet.11.2.1.nupkg.sha512",
+    "C:\\Users\\AEPBS\\.nuget\\packages\\microsoft.aspnetcore.app.ref\\5.0.0\\microsoft.aspnetcore.app.ref.5.0.0.nupkg.sha512",
+    "C:\\Users\\AEPBS\\.nuget\\packages\\microsoft.windowsdesktop.app.ref\\5.0.0\\microsoft.windowsdesktop.app.ref.5.0.0.nupkg.sha512",
+    "C:\\Users\\AEPBS\\.nuget\\packages\\microsoft.netcore.app.ref\\5.0.0\\microsoft.netcore.app.ref.5.0.0.nupkg.sha512",
+    "C:\\Users\\AEPBS\\.nuget\\packages\\microsoft.netcore.app.host.win-x86\\5.0.14\\microsoft.netcore.app.host.win-x86.5.0.14.nupkg.sha512"
   ],
   "logs": []
 }
