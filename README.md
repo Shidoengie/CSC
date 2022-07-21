@@ -15,6 +15,22 @@ ex:
 
 	const a = 0
 
+Indentation:
+
+Curly Brackets are used to signify indentation meaning anything inbetween curly brackets will be indented
+ex:
+
+	classname()
+    	{
+        	abc()
+        	{
+        	...
+        	}
+    	}
+	
+	classname(){abc(){}}
+
+";" is used to indicate EOF (end of line) 
 
 Types:
 
@@ -69,18 +85,20 @@ Command line reading and writing will be achieved with print() and input() with 
 
 ex:
 
-	var a = 5
-	var prompt = input("insert number").int()
-	print(a+5)
-
+	var a = 5;
+	var prompt = input("insert number").int();
+	print(a+5);
+	CONSOLE OUTPUT
+	--<5
+	-->10
 
 Strings
 
 String concatination:
 
-	var a = "a"
-	var b "b"
-	print(a+b)
+	var a = "a";
+	var b "b";
+	print(a+b);
 	CONSOLE OUTPUT
 	-->ab
 
@@ -94,11 +112,11 @@ Multidemension lists are nested lists
 Lists can have a determined size using .size()
 
 	ex:
-	var list = [1,a,true] #Normal list
-	const list = [1,a,true] #an imutable list
-	var list = [1,2,3].size(3) #list with size
-	var list = [[1,2],[1,2],[1,2]].size(3,2) #nested list with multiple sizes
-	var list = [[1,2..n],[1,2..n],[1,2..n]].size(3) #nested list with a single size
+	var list = [1,a,true]; #Normal list
+	const list = [1,a,true]; #an imutable list
+	var list = [1,2,3].size(3); #list with size
+	var list = [[1,2],[1,2],[1,2]].size(3,2); #nested list with multiple sizes
+	var list = [[1,2..n],[1,2..n],[1,2..n]].size(3); #nested list with a single size
 
 Data is added to lists using .append() this will add data on the back of the array a reverse of this is .apppend_back()
 
@@ -107,26 +125,14 @@ Indexes are acessed by using [] after the variable name
 indecies start at 0
 Ex:
 
-	a = [1,2,3]
-	print(a[0])
+	a = [1,2,3];
+	print(a[0]);
 	CONSOLE  OUTPUT:
 	-->1
 
 
-Indentation:
-Curly Brackets are used to signify indentation meaning anything inbetween curly brackets will be indented
-ex:
-
-	classname()
-    	{
-        	abc()
-        	{
-        	...
-        	}
-    	}
-classname(){abc(){}}
-
 Conditional statements:
+
 Conditional statemnets can be created using if,else,elif
 
 
