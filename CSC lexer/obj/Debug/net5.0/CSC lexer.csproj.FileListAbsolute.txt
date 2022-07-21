@@ -1,0 +1,17 @@
+C:\Users\ruiqw\source\repos\CSC lexer\CSC lexer\bin\Debug\net5.0\CSC lexer.exe
+C:\Users\ruiqw\source\repos\CSC lexer\CSC lexer\bin\Debug\net5.0\CSC lexer.deps.json
+C:\Users\ruiqw\source\repos\CSC lexer\CSC lexer\bin\Debug\net5.0\CSC lexer.runtimeconfig.json
+C:\Users\ruiqw\source\repos\CSC lexer\CSC lexer\bin\Debug\net5.0\CSC lexer.runtimeconfig.dev.json
+C:\Users\ruiqw\source\repos\CSC lexer\CSC lexer\bin\Debug\net5.0\CSC lexer.dll
+C:\Users\ruiqw\source\repos\CSC lexer\CSC lexer\bin\Debug\net5.0\ref\CSC lexer.dll
+C:\Users\ruiqw\source\repos\CSC lexer\CSC lexer\bin\Debug\net5.0\CSC lexer.pdb
+C:\Users\ruiqw\source\repos\CSC lexer\CSC lexer\bin\Debug\net5.0\YamlDotNet.dll
+C:\Users\ruiqw\source\repos\CSC lexer\CSC lexer\obj\Debug\net5.0\CSC lexer.csproj.AssemblyReference.cache
+C:\Users\ruiqw\source\repos\CSC lexer\CSC lexer\obj\Debug\net5.0\CSC lexer.GeneratedMSBuildEditorConfig.editorconfig
+C:\Users\ruiqw\source\repos\CSC lexer\CSC lexer\obj\Debug\net5.0\CSC lexer.AssemblyInfoInputs.cache
+C:\Users\ruiqw\source\repos\CSC lexer\CSC lexer\obj\Debug\net5.0\CSC lexer.AssemblyInfo.cs
+C:\Users\ruiqw\source\repos\CSC lexer\CSC lexer\obj\Debug\net5.0\CSC lexer.csproj.CoreCompileInputs.cache
+C:\Users\ruiqw\source\repos\CSC lexer\CSC lexer\obj\Debug\net5.0\CSC lexer.dll
+C:\Users\ruiqw\source\repos\CSC lexer\CSC lexer\obj\Debug\net5.0\ref\CSC lexer.dll
+C:\Users\ruiqw\source\repos\CSC lexer\CSC lexer\obj\Debug\net5.0\CSC lexer.pdb
+C:\Users\ruiqw\source\repos\CSC lexer\CSC lexer\obj\Debug\net5.0\CSC lexer.genruntimeconfig.cache
