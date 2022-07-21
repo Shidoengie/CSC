@@ -6,6 +6,7 @@ using System.Threading.Tasks;
 
 namespace CSC_lexer
 {
+
     public enum Tokentype
     {
         // Single-character tokens.

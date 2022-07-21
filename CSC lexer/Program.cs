@@ -47,6 +47,7 @@ namespace CSC_lexer
         }
         static void Run(string source)
         {
+            
             List<string> tokens = source.Split(" ").ToList();
             foreach (string token in tokens)
             {
