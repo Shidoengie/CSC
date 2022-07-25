@@ -60,7 +60,17 @@ namespace CSC_lexer
                 case ',': AddToken(COMMA); break;
                 case '.': AddToken(DOT); break;
                 case ';': AddToken(SEMICOLON); break;
+                case '"': str(); break;
                 case '#': while (peek() != '\n' && !isAtEnd()) Advance(); break;
+                case ' ':
+                case '\r':
+                case '\t':
+                    // Ignore whitespace.
+                    break;
+
+                case '\n':
+                    line++;
+                    break;
                 case '!':
                     AddToken(match('=') ? BANG_EQUAL : BANG);
                     break;
@@ -78,6 +88,9 @@ namespace CSC_lexer
                     break;
                 case '%':
                     AddToken(match('=') ? MOD_EQUAL : MOD);
+                    break;
+                case '/':
+                    AddToken(match('=') ? SLASH_EQUAL : SLASH);
                     break;
                 default:
                     CSC.error(line, "unexpected char");
@@ -139,6 +152,35 @@ namespace CSC_lexer
         {
             if (isAtEnd()) return '\0';
             return source[current];
+        }
+        private void str()
+        {
+            while (peek() != '"' && !isAtEnd())
+            {
+                if (peek() == '\n') line++;
+                Advance();
+            }
+
+            if (isAtEnd())
+            {
+                CSC.error(line, "Unterminated string.");
+                return;
+            }
+
+            // The closing ".
+            Advance();
+
+            // Trim the surrounding quotes.
+            string value = Substring_fromIndex(source,start + 1, current - 1);
+            AddToken(STRING, value);
+        }
+        private bool IsDigit(char c)
+        {
+            return c >= '0' && c <= '9';
+        }
+        private void number()
+        {
+
         }
     }
 }

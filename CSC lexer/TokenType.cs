@@ -22,9 +22,10 @@ namespace CSC_lexer
         MINUS_MINUS, PLUS_PLUS,
         MINUS_EQUAL, PLUS_EQUAL,
         EXPO, FLOOR,MOD_EQUAL,
+        SLASH_EQUAL,
 
         // Literals.
-        IDENTIFIER, STRING, NUMBER,
+        IDENTIFIER, STRING,NUMBER,
 
         // Keywords.
         AND, CLASS, ELSE, ELIF, FALSE, FUNC, FOR, IF, NIL, OR,
