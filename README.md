@@ -71,8 +71,6 @@ Operators:
 		/= : a /=3 #Divides a variable by a chosen number and assigns the value
 		*= : a *= 3 #Multiplies a variable by a chosen number and assigns the value
 		%= : a %= 3 # Gets the division remainder and assigns it to variable by a chosen number
-		**= : a**=3 Applies exponation to the variable by a chosen number and assigns it
-
 
 
 	Boolean operators:
