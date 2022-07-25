@@ -18,7 +18,8 @@ namespace CSC_lexer
         EQUAL, EQUAL_EQUAL,
         GREATER, GREATER_EQUAL,
         LESS, LESS_EQUAL,
-        LESS_LESS, PLUS_PLUS,
+        MINUS_MINUS, PLUS_PLUS,
+        MINUS_EQUAL, PLUS_EQUAL,
 
         // Literals.
         IDENTIFIER, STRING, NUMBER,

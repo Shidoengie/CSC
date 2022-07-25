@@ -3,10 +3,11 @@ using System.Collections.Generic;
 using System.IO;
 using System.Linq;
 using System.Text;
+using System.Text.RegularExpressions;
 
 namespace CSC_lexer
 {
-    public class Program
+    public class CSC
     {
         static bool had_error;
         
@@ -25,7 +26,7 @@ namespace CSC_lexer
             {
                 Run_prompt();
             }
-
+            
         }
         
         static void Run_prompt()
@@ -54,7 +55,7 @@ namespace CSC_lexer
                 Console.WriteLine(token);
             }
         }
-        static void error(int line, string message)
+        public static void error(int line, string message)
         {
             report(line, "", message);
         }
