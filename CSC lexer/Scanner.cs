@@ -61,6 +61,7 @@ namespace CSC_lexer
                 case '.': AddToken(DOT); break;
                 case ';': AddToken(SEMICOLON); break;
                 case '*': AddToken(STAR); break;
+                case '#': while (peek() != '\n' && !isAtEnd()) Advance(); break;
                 case '!':
                     AddToken(match('=') ? BANG_EQUAL : BANG);
                     break;
