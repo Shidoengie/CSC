@@ -29,7 +29,7 @@ namespace CSC_lexer
 
         // Keywords.
         AND, CLASS, ELSE, ELIF, FALSE, FUNC, FOR, IF, NIL, OR,
-        PRINT, RETURN, SUPER, THIS, TRUE, VAR, CONST, WHILE,
+        PRINT, RETURN, SUPER, THIS, TRUE, VAR, CONST, WHILE,NOT,
 
         EOF
     }

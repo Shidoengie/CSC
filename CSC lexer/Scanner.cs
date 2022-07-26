@@ -15,6 +15,7 @@ namespace CSC_lexer
         private int current = 0;
         private int line = 1;
         private string source;
+        
         private List<Token> tokens = new List<Token>();
         Scanner(string source)
         {
@@ -45,7 +46,7 @@ namespace CSC_lexer
         private void AddToken(Tokentype type, object literal)
         {
             string text = Substring_fromIndex(source, start, current);
-            tokens.Add(new Token(type,text,literal,line));
+            tokens.Add(new Token(type, text, literal, line));
         }
         private void scan_token()
         {
@@ -139,12 +140,12 @@ namespace CSC_lexer
             current++;
             return true;
         }
-        private byte mult_match(char expected1,char expected2)
+        private byte mult_match(char expected1, char expected2)
         {
             if (isAtEnd()) return 0;
-            if (source[current+1] != expected1 || source[current+1] != expected2) return 0;
-            if (source[current+1] == expected1) return 1;
-            if (source[current+1] == expected2) return 2;
+            if (source[current + 1] != expected1 || source[current + 1] != expected2) return 0;
+            if (source[current + 1] == expected1) return 1;
+            if (source[current + 1] == expected2) return 2;
             current++;
             return 0;
         }
@@ -171,7 +172,7 @@ namespace CSC_lexer
             Advance();
 
             // Trim the surrounding quotes.
-            string value = Substring_fromIndex(source,start + 1, current - 1);
+            string value = Substring_fromIndex(source, start + 1, current - 1);
             AddToken(STRING, value);
         }
         private bool IsDigit(char c)
@@ -182,5 +183,26 @@ namespace CSC_lexer
         {
 
         }
+        public static Dictionary<string, Tokentype> keywords = new Dictionary<string, Tokentype>() 
+        {
+            { "and", AND },
+            { "or", OR },
+            { "not", NOT },
+            { "true", TRUE },
+            { "false", FALSE },
+            { "if", IF },
+            { "else", ELSE },
+            { "elif", ELIF },
+            { "func", FUNC },
+            { "while", WHILE },
+            { "for", FOR },
+            { "class", CLASS },
+            { "super", SUPER },
+            { "print", PRINT },
+            { "this", THIS },
+            { "nil", NIL },
+        };
+        
+
     }
 }
