@@ -101,6 +101,8 @@ namespace CSC_lexer
                 case '.': AddToken(DOT); break;
                 case ';': AddToken(SEMICOLON); break;
                 case '"': str(); break;
+                case '+': break;
+                case '-': break;
                 case '#': while (peek() != '\n' && !isAtEnd()) Advance(); break;
                 case ' ':
                 case '\r':
@@ -117,7 +119,7 @@ namespace CSC_lexer
                     AddToken(match('=') ? EQUAL_EQUAL : EQUAL);
                     break;
                 case '*':
-                    AddToken(match('*') ? FLOOR : STAR);
+                    AddToken(match('*') ? EXPO : STAR);
                     break;
                 case '<':
                     AddToken(match('=') ? LESS_EQUAL : LESS);
@@ -132,11 +134,18 @@ namespace CSC_lexer
                     AddToken(match('=') ? SLASH_EQUAL : SLASH);
                     break;
                 default:
-                    if (IsDigit)
+                    if (isDigit(c))
                     {
-
+                        number();
                     }
-                    CSC.error(line, "unexpected char");
+                    else if (isAlphaNumeric(c))
+                    {
+                        identifier();
+                    }
+                    else
+                    {
+                        CSC.error(line, "unexpected char");
+                    }
                     break;
             }
             
@@ -189,7 +198,6 @@ namespace CSC_lexer
                    (c >= 'A' && c <= 'Z') ||
                     c == '_';
         }
-
         private bool isAlphaNumeric(char c)
         {
             return isAlpha(c) || isDigit(c);
@@ -251,7 +259,14 @@ namespace CSC_lexer
             { "this", THIS },
             { "nil", NIL },
         };
-        
-        
+        private void identifier()
+        {
+            string text = Substring_fromIndex(source,start,current);
+            Tokentype type = keywords[text];
+            if (type == null) type = IDENTIFIER;
+            AddToken(type);
+            AddToken(IDENTIFIER);
+        }
+
     }
 }
