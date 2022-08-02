@@ -50,8 +50,47 @@ namespace CSC_lexer
         }
         private void scan_token()
         {
-            char c = Advance();
             char invc = source[current];
+            char c = Advance();
+            switch (invc)
+            {
+                case '-':
+                    switch (mult_match('-', '='))
+                    {
+                        case 0:
+                            AddToken(MINUS);
+                            break;
+                        case 1:
+                            if (Comment_Or_EOF()) { AddToken(MINUS_MINUS); }
+                            else { CSC.error(line, "unexpected char post assignment"); }
+                            break;
+                        case 2:
+                            AddToken(MINUS_EQUAL);
+                            break;
+                        default:
+                            break;
+                    }
+                    break;
+                case '+':
+                    switch (mult_match('+', '='))
+                    {
+                        case 0:
+                            AddToken(PLUS);
+                            break;
+                        case 1:
+                            if (Comment_Or_EOF()) { AddToken(PLUS_PLUS); }
+                            else { CSC.error(line, "unexpected char post assignment"); }
+                            break;
+                        case 2:
+                            AddToken(PLUS_EQUAL);
+                            break;
+                        default:
+                            break;
+                    }
+                    break;
+                default:
+                    break;
+            }
             switch (c)
             {
                 case '(': AddToken(LEFT_PAREN); break;
@@ -68,7 +107,6 @@ namespace CSC_lexer
                 case '\t':
                     // Ignore whitespace.
                     break;
-
                 case '\n':
                     line++;
                     break;
@@ -94,44 +132,30 @@ namespace CSC_lexer
                     AddToken(match('=') ? SLASH_EQUAL : SLASH);
                     break;
                 default:
+                    if (IsDigit)
+                    {
+
+                    }
                     CSC.error(line, "unexpected char");
                     break;
             }
-            switch (invc)
+            
+        }
+        private bool Comment_Or_EOF()
+        {
+            foreach (char c in source.Substring(current + 2))
             {
-                case '-':
-                    switch (mult_match('-', '='))
-                    {
-                        case 0:
-                            AddToken(MINUS);
-                            break;
-                        case 1:
-                            AddToken(MINUS_MINUS);
-                            break;
-                        case 2:
-                            AddToken(MINUS_EQUAL);
-                            break;
-                        default:
-                            break;
-                    }
-                    break;
-                case '+':
-                    switch (mult_match('+', '='))
-                    {
-                        case 0:
-                            AddToken(PLUS);
-                            break;
-                        case 1:
-                            AddToken(PLUS_PLUS);
-                            break;
-                        case 2:
-                            AddToken(PLUS_EQUAL);
-                            break;
-                        default:
-                            break;
-                    }
-                    break;
+                if (c == ' ' || c == '\t' || c == '\r')
+                {
+                    continue;
+                }
+                if (c == '\n' || c == '#')
+                {
+                    return true;
+                }
+                return false;
             }
+            return false;
         }
         private bool match(char expected)
         {
@@ -154,6 +178,22 @@ namespace CSC_lexer
             if (isAtEnd()) return '\0';
             return source[current];
         }
+        private char peekNext()
+        {
+            if (current + 1 >= source.Length) return '\0';
+            return source[current+1];
+        }
+        private bool isAlpha(char c)
+        {
+            return (c >= 'a' && c <= 'z') ||
+                   (c >= 'A' && c <= 'Z') ||
+                    c == '_';
+        }
+
+        private bool isAlphaNumeric(char c)
+        {
+            return isAlpha(c) || isDigit(c);
+        }
         private void str()
         {
             while (peek() != '"' && !isAtEnd())
@@ -175,13 +215,22 @@ namespace CSC_lexer
             string value = Substring_fromIndex(source, start + 1, current - 1);
             AddToken(STRING, value);
         }
-        private bool IsDigit(char c)
+        private bool isDigit(char c)
         {
             return c >= '0' && c <= '9';
         }
         private void number()
         {
+            while (isDigit(peek())) Advance();
+            if (peek() == '.' && isDigit(peekNext()))
+            {
+                Advance();
 
+                while (isDigit(peek())) Advance();
+            }
+            int a = 12;
+            
+            AddToken(NUMBER,Double.Parse(Substring_fromIndex(source,start,current)));
         }
         public static Dictionary<string, Tokentype> keywords = new Dictionary<string, Tokentype>() 
         {
@@ -203,6 +252,6 @@ namespace CSC_lexer
             { "nil", NIL },
         };
         
-
+        
     }
 }
