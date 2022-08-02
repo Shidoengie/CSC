@@ -10,13 +10,19 @@ namespace CSC_lexer
     {
         public static string Substring_fromIndex(string text, int start, int stop)
         {
-            int fixedstart = start;
-            if (start > stop)
+            string outp = "";
+            foreach (char item in text.Substring(start))
             {
-                start = stop;
-                stop = fixedstart;
+                outp += item;
+                if (item == text[stop-1])
+                {
+                    outp += item;
+                    break;
+                }
+                
             }
-            return (text.Substring(start, Math.Abs(text.Substring(0, start + 1).Length - text.Substring(0, stop + 2).Length)));
+            return outp;
         }
+        //HAS NO USE
     }
 }

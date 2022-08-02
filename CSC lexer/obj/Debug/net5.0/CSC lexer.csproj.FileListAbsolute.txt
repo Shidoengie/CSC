@@ -15,3 +15,21 @@ C:\Users\ruiqw\source\repos\CSC lexer\CSC lexer\obj\Debug\net5.0\CSC lexer.dll
 C:\Users\ruiqw\source\repos\CSC lexer\CSC lexer\obj\Debug\net5.0\ref\CSC lexer.dll
 C:\Users\ruiqw\source\repos\CSC lexer\CSC lexer\obj\Debug\net5.0\CSC lexer.pdb
 C:\Users\ruiqw\source\repos\CSC lexer\CSC lexer\obj\Debug\net5.0\CSC lexer.genruntimeconfig.cache
+C:\Users\AEPBS\Documents\GitHub\CSC\CSC lexer\bin\Debug\net5.0\CSC lexer.exe
+C:\Users\AEPBS\Documents\GitHub\CSC\CSC lexer\bin\Debug\net5.0\CSC lexer.deps.json
+C:\Users\AEPBS\Documents\GitHub\CSC\CSC lexer\bin\Debug\net5.0\CSC lexer.runtimeconfig.json
+C:\Users\AEPBS\Documents\GitHub\CSC\CSC lexer\bin\Debug\net5.0\CSC lexer.runtimeconfig.dev.json
+C:\Users\AEPBS\Documents\GitHub\CSC\CSC lexer\bin\Debug\net5.0\CSC lexer.dll
+C:\Users\AEPBS\Documents\GitHub\CSC\CSC lexer\bin\Debug\net5.0\ref\CSC lexer.dll
+C:\Users\AEPBS\Documents\GitHub\CSC\CSC lexer\bin\Debug\net5.0\CSC lexer.pdb
+C:\Users\AEPBS\Documents\GitHub\CSC\CSC lexer\bin\Debug\net5.0\YamlDotNet.dll
+C:\Users\AEPBS\Documents\GitHub\CSC\CSC lexer\obj\Debug\net5.0\CSC lexer.csproj.AssemblyReference.cache
+C:\Users\AEPBS\Documents\GitHub\CSC\CSC lexer\obj\Debug\net5.0\CSC lexer.GeneratedMSBuildEditorConfig.editorconfig
+C:\Users\AEPBS\Documents\GitHub\CSC\CSC lexer\obj\Debug\net5.0\CSC lexer.AssemblyInfoInputs.cache
+C:\Users\AEPBS\Documents\GitHub\CSC\CSC lexer\obj\Debug\net5.0\CSC lexer.AssemblyInfo.cs
+C:\Users\AEPBS\Documents\GitHub\CSC\CSC lexer\obj\Debug\net5.0\CSC lexer.csproj.CoreCompileInputs.cache
+C:\Users\AEPBS\Documents\GitHub\CSC\CSC lexer\obj\Debug\net5.0\CSC lexer.csproj.CopyComplete
+C:\Users\AEPBS\Documents\GitHub\CSC\CSC lexer\obj\Debug\net5.0\CSC lexer.dll
+C:\Users\AEPBS\Documents\GitHub\CSC\CSC lexer\obj\Debug\net5.0\ref\CSC lexer.dll
+C:\Users\AEPBS\Documents\GitHub\CSC\CSC lexer\obj\Debug\net5.0\CSC lexer.pdb
+C:\Users\AEPBS\Documents\GitHub\CSC\CSC lexer\obj\Debug\net5.0\CSC lexer.genruntimeconfig.cache

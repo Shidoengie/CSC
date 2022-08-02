@@ -1,9 +1,8 @@
 {
   "runtimeOptions": {
     "additionalProbingPaths": [
-      "C:\\Users\\ruiqw\\.dotnet\\store\\|arch|\\|tfm|",
-      "C:\\Users\\ruiqw\\.nuget\\packages",
-      "E:\\vs3\\NuGetPackages"
+      "C:\\Users\\AEPBS\\.dotnet\\store\\|arch|\\|tfm|",
+      "C:\\Users\\AEPBS\\.nuget\\packages"
     ]
   }
 }

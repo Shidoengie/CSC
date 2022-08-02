@@ -9,7 +9,7 @@ using static CSC_lexer.Tokentype;
 
 namespace CSC_lexer
 {
-    class Scanner
+    public class Scanner
     {
         private int start = 0;
         private int current = 0;
@@ -17,11 +17,11 @@ namespace CSC_lexer
         private string source;
         
         private List<Token> tokens = new List<Token>();
-        Scanner(string source)
+        public Scanner(string source)
         {
             this.source = source;
         }
-        List<Token> ScanTokens()
+        public List<Token> ScanTokens()
         {
             while (!isAtEnd())
             {
@@ -45,52 +45,13 @@ namespace CSC_lexer
         }
         private void AddToken(Tokentype type, object literal)
         {
-            string text = Substring_fromIndex(source, start, current);
+            string text = source[start..current];
             tokens.Add(new Token(type, text, literal, line));
         }
         private void scan_token()
         {
-            char invc = source[current];
             char c = Advance();
-            switch (invc)
-            {
-                case '-':
-                    switch (mult_match('-', '='))
-                    {
-                        case 0:
-                            AddToken(MINUS);
-                            break;
-                        case 1:
-                            if (Comment_Or_EOF()) { AddToken(MINUS_MINUS); }
-                            else { CSC.error(line, "unexpected char post assignment"); }
-                            break;
-                        case 2:
-                            AddToken(MINUS_EQUAL);
-                            break;
-                        default:
-                            break;
-                    }
-                    break;
-                case '+':
-                    switch (mult_match('+', '='))
-                    {
-                        case 0:
-                            AddToken(PLUS);
-                            break;
-                        case 1:
-                            if (Comment_Or_EOF()) { AddToken(PLUS_PLUS); }
-                            else { CSC.error(line, "unexpected char post assignment"); }
-                            break;
-                        case 2:
-                            AddToken(PLUS_EQUAL);
-                            break;
-                        default:
-                            break;
-                    }
-                    break;
-                default:
-                    break;
-            }
+            
             switch (c)
             {
                 case '(': AddToken(LEFT_PAREN); break;
@@ -101,8 +62,8 @@ namespace CSC_lexer
                 case '.': AddToken(DOT); break;
                 case ';': AddToken(SEMICOLON); break;
                 case '"': str(); break;
-                case '+': break;
-                case '-': break;
+                
+                
                 case '#': while (peek() != '\n' && !isAtEnd()) Advance(); break;
                 case ' ':
                 case '\r':
@@ -133,6 +94,44 @@ namespace CSC_lexer
                 case '/':
                     AddToken(match('=') ? SLASH_EQUAL : SLASH);
                     break;
+
+                case '+':
+                    if (match('+'))
+                    {
+                        if (Comment_Or_EOF()) { AddToken(PLUS_PLUS); }
+                        else { CSC.error(line, "unexpected char post assignment"); }
+                    }
+                    else if (match('='))
+                    {
+                        AddToken(PLUS_EQUAL);
+                    }
+                    else
+                    {
+                        AddToken(PLUS);
+                    }
+                    break;
+                case '-':
+                    if (match('-'))
+                    {
+                        if (Comment_Or_EOF()) { AddToken(MINUS_MINUS); }
+                        else { CSC.error(line, "unexpected char post assignment"); }
+                    }
+                    else if (match('='))
+                    {
+                        AddToken(MINUS_EQUAL);
+                    }
+                    else
+                    {
+                        AddToken(PLUS);
+                    }
+                    break;
+                // keywords
+                case 'o':
+                    if (match('r'))
+                    {
+                        AddToken(OR);
+                    }
+                    break;
                 default:
                     if (isDigit(c))
                     {
@@ -152,7 +151,8 @@ namespace CSC_lexer
         }
         private bool Comment_Or_EOF()
         {
-            foreach (char c in source.Substring(current + 2))
+            Console.WriteLine(current);
+            foreach (char c in source.Substring(current-1))
             {
                 if (c == ' ' || c == '\t' || c == '\r')
                 {
@@ -162,9 +162,9 @@ namespace CSC_lexer
                 {
                     return true;
                 }
-                return false;
             }
-            return false;
+            Console.WriteLine("a");
+            return true;
         }
         private bool match(char expected)
         {
@@ -172,15 +172,6 @@ namespace CSC_lexer
             if (source[current] != expected) return false;
             current++;
             return true;
-        }
-        private byte mult_match(char expected1, char expected2)
-        {
-            if (isAtEnd()) return 0;
-            if (source[current + 1] != expected1 || source[current + 1] != expected2) return 0;
-            if (source[current + 1] == expected1) return 1;
-            if (source[current + 1] == expected2) return 2;
-            current++;
-            return 0;
         }
         private char peek()
         {
@@ -220,7 +211,7 @@ namespace CSC_lexer
             Advance();
 
             // Trim the surrounding quotes.
-            string value = Substring_fromIndex(source, start + 1, current - 1);
+            string value = source[(start+1)..(current-1)];
             AddToken(STRING, value);
         }
         private bool isDigit(char c)
@@ -236,9 +227,9 @@ namespace CSC_lexer
 
                 while (isDigit(peek())) Advance();
             }
-            int a = 12;
-            
-            AddToken(NUMBER,Double.Parse(Substring_fromIndex(source,start,current)));
+
+
+            AddToken(NUMBER, Double.Parse(source[start..current]));
         }
         public static Dictionary<string, Tokentype> keywords = new Dictionary<string, Tokentype>() 
         {
@@ -261,8 +252,13 @@ namespace CSC_lexer
         };
         private void identifier()
         {
-            string text = Substring_fromIndex(source,start,current);
-            Tokentype type = keywords[text];
+            string text = source[start..current];
+            Tokentype type = new Tokentype();
+            if (!keywords.TryGetValue(text,out type))
+            {
+                CSC.error(line,"invalid keyword");
+            }
+            
             if (type == null) type = IDENTIFIER;
             AddToken(type);
             AddToken(IDENTIFIER);

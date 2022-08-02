@@ -48,11 +48,11 @@ namespace CSC_lexer
         }
         static void Run(string source)
         {
-            
-            List<string> tokens = source.Split(" ").ToList();
-            foreach (string token in tokens)
+            Scanner scanner = new Scanner(source);
+            List<Token> tokens = scanner.ScanTokens();
+            foreach (Token token in tokens)
             {
-                Console.WriteLine(token);
+                Console.WriteLine(token.ToString());
             }
         }
         public static void error(int line, string message)
