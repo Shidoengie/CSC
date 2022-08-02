@@ -98,7 +98,7 @@ namespace CSC_lexer
                 case '+':
                     if (match('+'))
                     {
-                        if (Comment_Or_EOF()) { AddToken(PLUS_PLUS); }
+                        if (Comment_Or_EOF('+')) { AddToken(PLUS_PLUS); }
                         else { CSC.error(line, "unexpected char post assignment"); }
                     }
                     else if (match('='))
@@ -113,7 +113,7 @@ namespace CSC_lexer
                 case '-':
                     if (match('-'))
                     {
-                        if (Comment_Or_EOF()) { AddToken(MINUS_MINUS); }
+                        if (Comment_Or_EOF('-')) { AddToken(MINUS_MINUS); }
                         else { CSC.error(line, "unexpected char post assignment"); }
                     }
                     else if (match('='))
@@ -132,6 +132,17 @@ namespace CSC_lexer
                         AddToken(OR);
                     }
                     break;
+                case 'a':
+                    if (match('n') && match('d'))
+                    {
+                        AddToken(AND);
+                    }
+                    else
+                    {
+                        CSC.error(line, "invalid keyword");
+                    }
+                    
+                    break;
                 default:
                     if (isDigit(c))
                     {
@@ -149,22 +160,27 @@ namespace CSC_lexer
             }
             
         }
-        private bool Comment_Or_EOF()
+        private bool Comment_Or_EOF(char expected)
         {
-            Console.WriteLine(current);
-            foreach (char c in source.Substring(current-1))
+            
+            bool result = false;
+            foreach (char c in source)
             {
+                
                 if (c == ' ' || c == '\t' || c == '\r')
                 {
                     continue;
                 }
-                if (c == '\n' || c == '#')
+                if (c == '\n' || c == '#'||c == expected)
                 {
-                    return true;
+                    result = true;
+                }
+                else
+                {
+                    result = false;
                 }
             }
-            Console.WriteLine("a");
-            return true;
+            return result;
         }
         private bool match(char expected)
         {

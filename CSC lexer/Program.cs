@@ -58,6 +58,7 @@ namespace CSC_lexer
         public static void error(int line, string message)
         {
             report(line, "", message);
+            
         }
         static void report(int line, string where, string message)
         {
