@@ -127,21 +127,44 @@ namespace CSC_lexer
                     break;
                 // keywords
                 case 'o':
-                    if (match('r'))
-                    {
-                        AddToken(OR);
-                    }
+                    if (match('r')) { AddToken(OR); }
                     break;
                 case 'a':
-                    if (match('n') && match('d'))
-                    {
-                        AddToken(AND);
-                    }
-                    else
-                    {
-                        CSC.error(line, "invalid keyword");
-                    }
-                    
+                    if (match_string("nd")) { AddToken(AND); }
+                    break;
+                case 'c':
+                    if (match_string("lass")) { AddToken(CLASS); }
+                    else if (match_string("onst")) { AddToken(CONST); }
+                    break;
+                case 'e':
+                    if (match_string("lse")) { AddToken(ELSE); }
+                    else if (match_string("lif")) { AddToken(ELIF); }
+                    break;
+                case 'f':
+                    if (match_string("alse")) { AddToken(FALSE); }
+                    else if (match_string("unc")) { AddToken(FUNC); }
+                    else if (match_string("or")) { AddToken(FOR); }
+                    break;
+                case 'i':
+                    if (match('f')) { AddToken(IF); }
+                    else if (match('n')) { AddToken(IN); }
+                    break;
+                case 'n':
+                    if (match_string("ot")) { AddToken(NOT); }
+                    else if (match_string("il")) { AddToken(NIL); }
+                    break;
+                case 'r':
+                    if (match_string("eturn")) { AddToken(RETURN); }
+                    break;
+                case 's':
+                    if (match_string("uper")) { AddToken(SUPER); }
+                    break;
+                case 't':
+                    if (match_string("his")) { AddToken(THIS); }
+                    else if (match_string("rue")) { AddToken(TRUE); }
+                    break;
+                case 'w':
+                    if (match_string("hile")) { AddToken(WHILE); }
                     break;
                 default:
                     if (isDigit(c))
@@ -188,6 +211,20 @@ namespace CSC_lexer
             if (source[current] != expected) return false;
             current++;
             return true;
+        }
+        private bool match_string(string text)
+        {
+            bool result = true;
+
+            foreach (char item in text)
+            {
+                result = match(item);
+                if (!result)
+                {
+                    break;
+                }
+            }
+            return result;
         }
         private char peek()
         {
@@ -262,9 +299,11 @@ namespace CSC_lexer
             { "for", FOR },
             { "class", CLASS },
             { "super", SUPER },
-            { "print", PRINT },
             { "this", THIS },
             { "nil", NIL },
+            { "var", VAR },
+            { "const", CONST },
+            { "in", IN },
         };
         private void identifier()
         {

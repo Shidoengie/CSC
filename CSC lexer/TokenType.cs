@@ -28,8 +28,8 @@ namespace CSC_lexer
         IDENTIFIER,STRING,NUMBER,
 
         // Keywords.
-        AND, CLASS, ELSE, ELIF, FALSE, FUNC, FOR, IF, NIL, OR,
-        PRINT, RETURN, SUPER, THIS, TRUE, VAR, CONST, WHILE,NOT,
+        AND, CLASS, ELSE, ELIF, FALSE, FUNC, FOR, IF,IN, NIL, OR,
+        RETURN, SUPER, THIS, TRUE, VAR, CONST, WHILE,NOT,
 
         EOF
     }
