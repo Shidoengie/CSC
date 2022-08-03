@@ -4,7 +4,7 @@ using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
 
-namespace CSC_lexer
+namespace LOCS
 {
     public class Token
     {

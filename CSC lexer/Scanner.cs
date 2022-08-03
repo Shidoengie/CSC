@@ -4,10 +4,10 @@ using System.Linq;
 using System.Text;
 using System.Text.RegularExpressions;
 using System.Threading.Tasks;
-using static CSC_lexer.GMethods;
-using static CSC_lexer.Tokentype;
+using static LOCS.GMethods;
+using static LOCS.Tokentype;
 
-namespace CSC_lexer
+namespace LOCS
 {
     public class Scanner
     {
@@ -63,7 +63,6 @@ namespace CSC_lexer
                 case ';': AddToken(SEMICOLON); break;
                 case '"': str(); break;
                 
-                
                 case '#': while (peek() != '\n' && !isAtEnd()) Advance(); break;
                 case ' ':
                 case '\r':
@@ -76,96 +75,95 @@ namespace CSC_lexer
                 case '!':
                     AddToken(match('=') ? BANG_EQUAL : BANG);
                     break;
+
                 case '=':
                     AddToken(match('=') ? EQUAL_EQUAL : EQUAL);
                     break;
+
                 case '*':
                     AddToken(match('*') ? EXPO : STAR);
                     break;
+
                 case '<':
                     AddToken(match('=') ? LESS_EQUAL : LESS);
                     break;
+
                 case '>':
                     AddToken(match('=') ? GREATER_EQUAL : GREATER);
                     break;
+
                 case '%':
                     AddToken(match('=') ? MOD_EQUAL : MOD);
                     break;
+
                 case '/':
                     AddToken(match('=') ? SLASH_EQUAL : SLASH);
                     break;
 
                 case '+':
-                    if (match('+'))
-                    {
-                        if (Comment_Or_EOF('+')) { AddToken(PLUS_PLUS); }
-                        else { CSC.error(line, "unexpected char post assignment"); }
-                    }
-                    else if (match('='))
-                    {
-                        AddToken(PLUS_EQUAL);
-                    }
-                    else
-                    {
-                        AddToken(PLUS);
-                    }
+                    if (match('+')) { AddToken(PLUS_PLUS); }
+                    else if (match('=')) { AddToken(PLUS_EQUAL); }
+                    else { AddToken(PLUS); }
                     break;
+
                 case '-':
-                    if (match('-'))
-                    {
-                        if (Comment_Or_EOF('-')) { AddToken(MINUS_MINUS); }
-                        else { CSC.error(line, "unexpected char post assignment"); }
-                    }
-                    else if (match('='))
-                    {
-                        AddToken(MINUS_EQUAL);
-                    }
-                    else
-                    {
-                        AddToken(PLUS);
-                    }
+                    if (match('-')) { AddToken(MINUS_MINUS); }
+                    else if (match('=')) { AddToken(MINUS_EQUAL); }
+                    else { AddToken(MINUS); }
                     break;
+
                 // keywords
                 case 'o':
                     if (match('r')) { AddToken(OR); }
                     break;
+
                 case 'a':
                     if (match_string("nd")) { AddToken(AND); }
                     break;
+
                 case 'c':
                     if (match_string("lass")) { AddToken(CLASS); }
                     else if (match_string("onst")) { AddToken(CONST); }
                     break;
+
                 case 'e':
                     if (match_string("lse")) { AddToken(ELSE); }
                     else if (match_string("lif")) { AddToken(ELIF); }
                     break;
+
                 case 'f':
                     if (match_string("alse")) { AddToken(FALSE); }
                     else if (match_string("unc")) { AddToken(FUNC); }
                     else if (match_string("or")) { AddToken(FOR); }
                     break;
+
                 case 'i':
                     if (match('f')) { AddToken(IF); }
                     else if (match('n')) { AddToken(IN); }
                     break;
+
                 case 'n':
                     if (match_string("ot")) { AddToken(NOT); }
                     else if (match_string("il")) { AddToken(NIL); }
                     break;
+
                 case 'r':
                     if (match_string("eturn")) { AddToken(RETURN); }
                     break;
+
                 case 's':
                     if (match_string("uper")) { AddToken(SUPER); }
                     break;
+
                 case 't':
                     if (match_string("his")) { AddToken(THIS); }
                     else if (match_string("rue")) { AddToken(TRUE); }
                     break;
+
                 case 'w':
                     if (match_string("hile")) { AddToken(WHILE); }
                     break;
+
                 default:
                     if (isDigit(c))
                     {
@@ -177,7 +175,7 @@ namespace CSC_lexer
                     }
                     else
                     {
-                        CSC.error(line, "unexpected char");
+                        LOX.error(line, "unexpected char");
                     }
                     break;
             }
@@ -256,7 +254,7 @@ namespace CSC_lexer
 
             if (isAtEnd())
             {
-                CSC.error(line, "Unterminated string.");
+                LOX.error(line, "Unterminated string.");
                 return;
             }
 
@@ -267,6 +265,25 @@ namespace CSC_lexer
             string value = source[(start+1)..(current-1)];
             AddToken(STRING, value);
         }
+        /*
+        private void list()
+        {
+            while (peek() != ']' && !isAtEnd())
+            {
+                if (peek() == '\n') line++;
+                Advance();
+            }
+
+            if (isAtEnd())
+            {
+                LOX.error(line, "Unterminated list.");
+                return;
+            }
+            Advance();
+            string value = source[(start + 1)..(current - 1)];
+            AddToken(LIST, value);
+        }
+        */
         private bool isDigit(char c)
         {
             return c >= '0' && c <= '9';
@@ -311,7 +328,7 @@ namespace CSC_lexer
             Tokentype type = new Tokentype();
             if (!keywords.TryGetValue(text,out type))
             {
-                CSC.error(line,"invalid keyword");
+                LOX.error(line,"invalid keyword");
             }
             
             if (type == null) type = IDENTIFIER;

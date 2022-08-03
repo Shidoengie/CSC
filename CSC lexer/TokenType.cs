@@ -4,7 +4,7 @@ using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
 
-namespace CSC_lexer
+namespace LOCS
 {
 
     public enum Tokentype
@@ -29,7 +29,7 @@ namespace CSC_lexer
 
         // Keywords.
         AND, CLASS, ELSE, ELIF, FALSE, FUNC, FOR, IF,IN, NIL, OR,
-        RETURN, SUPER, THIS, TRUE, VAR, CONST, WHILE,NOT,
+        RETURN, SUPER, THIS, TRUE, VAR, CONST, WHILE,NOT,PRINT,INPUT,
 
         EOF
     }
