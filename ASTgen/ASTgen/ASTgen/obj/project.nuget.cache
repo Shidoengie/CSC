@@ -1,0 +1,13 @@
+{
+  "version": 2,
+  "dgSpecHash": "VxSLPPDUWLcAnczDLF+Tl/+o3YsMITXqbZVsX5ILyzV8mDZmkqU6Ht+k2OepmbFT54vbKI1+yJa8WR0oGQzbZg==",
+  "success": true,
+  "projectFilePath": "C:\\Users\\AEPBS\\Documents\\GitHub\\CSC\\ASTgen\\ASTgen\\ASTgen\\ASTgen.csproj",
+  "expectedPackageFiles": [
+    "C:\\Users\\AEPBS\\.nuget\\packages\\microsoft.aspnetcore.app.ref\\5.0.0\\microsoft.aspnetcore.app.ref.5.0.0.nupkg.sha512",
+    "C:\\Users\\AEPBS\\.nuget\\packages\\microsoft.windowsdesktop.app.ref\\5.0.0\\microsoft.windowsdesktop.app.ref.5.0.0.nupkg.sha512",
+    "C:\\Users\\AEPBS\\.nuget\\packages\\microsoft.netcore.app.ref\\5.0.0\\microsoft.netcore.app.ref.5.0.0.nupkg.sha512",
+    "C:\\Users\\AEPBS\\.nuget\\packages\\microsoft.netcore.app.host.win-x86\\5.0.14\\microsoft.netcore.app.host.win-x86.5.0.14.nupkg.sha512"
+  ],
+  "logs": []
+}
