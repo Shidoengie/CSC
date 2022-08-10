@@ -1,9 +1,10 @@
 {
   "version": 2,
-  "dgSpecHash": "VxSLPPDUWLcAnczDLF+Tl/+o3YsMITXqbZVsX5ILyzV8mDZmkqU6Ht+k2OepmbFT54vbKI1+yJa8WR0oGQzbZg==",
+  "dgSpecHash": "z838OI+7U+i33UChArI7zDRrIr713XBWaxxB+yJ16HqvgNVZ9kNn13wYNV/pD9ONrnHE6gOkFR35sqrMfjnUyg==",
   "success": true,
-  "projectFilePath": "C:\\Users\\AEPBS\\Documents\\GitHub\\CSC\\ASTgen\\ASTgen\\ASTgen\\ASTgen.csproj",
+  "projectFilePath": "C:\\Users\\AEPBS\\Documents\\GitHub\\CSC\\ASTgen\\ASTgen.csproj",
   "expectedPackageFiles": [
+    "C:\\Users\\AEPBS\\.nuget\\packages\\yamldotnet\\11.2.1\\yamldotnet.11.2.1.nupkg.sha512",
     "C:\\Users\\AEPBS\\.nuget\\packages\\microsoft.aspnetcore.app.ref\\5.0.0\\microsoft.aspnetcore.app.ref.5.0.0.nupkg.sha512",
     "C:\\Users\\AEPBS\\.nuget\\packages\\microsoft.windowsdesktop.app.ref\\5.0.0\\microsoft.windowsdesktop.app.ref.5.0.0.nupkg.sha512",
     "C:\\Users\\AEPBS\\.nuget\\packages\\microsoft.netcore.app.ref\\5.0.0\\microsoft.netcore.app.ref.5.0.0.nupkg.sha512",

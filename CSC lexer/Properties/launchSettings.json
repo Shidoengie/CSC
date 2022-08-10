@@ -1,0 +1,10 @@
+{
+  "profiles": {
+    "CSC lexer": {
+      "commandName": "Project"
+    },
+    "ASTgen": {
+      "commandName": "Project"
+    }
+  }
+}

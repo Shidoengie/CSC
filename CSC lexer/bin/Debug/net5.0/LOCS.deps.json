@@ -6,12 +6,12 @@
   "compilationOptions": {},
   "targets": {
     ".NETCoreApp,Version=v5.0": {
-      "CSC lexer/1.0.0": {
+      "LOCS/1.0.0": {
         "dependencies": {
           "YamlDotNet": "11.2.1"
         },
         "runtime": {
-          "CSC lexer.dll": {}
+          "LOCS.dll": {}
         }
       },
       "YamlDotNet/11.2.1": {
@@ -25,7 +25,7 @@
     }
   },
   "libraries": {
-    "CSC lexer/1.0.0": {
+    "LOCS/1.0.0": {
       "type": "project",
       "serviceable": false,
       "sha512": ""
