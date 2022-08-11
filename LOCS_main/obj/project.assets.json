@@ -1,30 +1,11 @@
 {
   "version": 3,
   "targets": {
-    "net5.0": {
-      "LOCS_main/1.0.0": {
-        "type": "project",
-        "framework": ".NETCoreApp,Version=v5.0",
-        "compile": {
-          "bin/placeholder/LOCS_main.dll": {}
-        },
-        "runtime": {
-          "bin/placeholder/LOCS_main.dll": {}
-        }
-      }
-    }
+    "net5.0": {}
   },
-  "libraries": {
-    "LOCS_main/1.0.0": {
-      "type": "project",
-      "path": "../LOCS_main/LOCS_main.csproj",
-      "msbuildProject": "../LOCS_main/LOCS_main.csproj"
-    }
-  },
+  "libraries": {},
   "projectFileDependencyGroups": {
-    "net5.0": [
-      "LOCS_main >= 1.0.0"
-    ]
+    "net5.0": []
   },
   "packageFolders": {
     "C:\\Users\\AEPBS\\.nuget\\packages\\": {}
@@ -32,11 +13,11 @@
   "project": {
     "version": "1.0.0",
     "restore": {
-      "projectUniqueName": "C:\\Users\\AEPBS\\source\\repos\\LOCS_main\\ASTgen\\ASTgen.csproj",
-      "projectName": "ASTgen",
-      "projectPath": "C:\\Users\\AEPBS\\source\\repos\\LOCS_main\\ASTgen\\ASTgen.csproj",
+      "projectUniqueName": "C:\\Users\\AEPBS\\source\\repos\\LOCS_main\\LOCS_main\\LOCS_main.csproj",
+      "projectName": "LOCS_main",
+      "projectPath": "C:\\Users\\AEPBS\\source\\repos\\LOCS_main\\LOCS_main\\LOCS_main.csproj",
       "packagesPath": "C:\\Users\\AEPBS\\.nuget\\packages\\",
-      "outputPath": "C:\\Users\\AEPBS\\source\\repos\\LOCS_main\\ASTgen\\obj\\",
+      "outputPath": "C:\\Users\\AEPBS\\source\\repos\\LOCS_main\\LOCS_main\\obj\\",
       "projectStyle": "PackageReference",
       "configFilePaths": [
         "C:\\Users\\AEPBS\\AppData\\Roaming\\NuGet\\NuGet.Config",
@@ -52,11 +33,7 @@
       "frameworks": {
         "net5.0": {
           "targetAlias": "net5.0",
-          "projectReferences": {
-            "C:\\Users\\AEPBS\\source\\repos\\LOCS_main\\LOCS_main\\LOCS_main.csproj": {
-              "projectPath": "C:\\Users\\AEPBS\\source\\repos\\LOCS_main\\LOCS_main\\LOCS_main.csproj"
-            }
-          }
+          "projectReferences": {}
         }
       },
       "warningProperties": {

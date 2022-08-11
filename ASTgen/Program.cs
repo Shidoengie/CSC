@@ -18,10 +18,10 @@ namespace ASTgen
             }
             string outpDir = args[0];
             string[] ast_list = {
-                "Binary   : Expr left, Token operator, Expr right",
+                "Binary   : Expr left, Token op, Expr right",
                 "Grouping : Expr expression",
                 "Literal  : Object value",
-                "Unary    : Token operator, Expr right"
+                "Unary    : Token op, Expr right"
             };
             define_ast(outpDir, "Expr", ast_list.ToList());
 
@@ -32,6 +32,7 @@ namespace ASTgen
             StreamWriter file = File.CreateText(path);
             file.WriteLine("using System;");
             file.WriteLine("using System.Collections.Generic;");
+            file.WriteLine("using LOCS");
             file.WriteLine();
             file.WriteLine("abstract class " + basename);
             file.WriteLine("{");
@@ -42,26 +43,28 @@ namespace ASTgen
                 define_type(file, basename, classname, fields);
             }
             file.WriteLine("}");
+            file.Flush();
         }
         private static void define_type(StreamWriter file,string basename,string classname,string fieldlist)
         {
-            file.WriteLine("sealed class "+classname+" : "+basename);
-            file.WriteLine("{");
-            file.WriteLine($"   {classname}({fieldlist})");
-            file.WriteLine("{");
+            file.WriteLine("    sealed class "+classname+" : "+basename);
+            file.WriteLine("    {");
+            file.WriteLine($"       {classname}({fieldlist})");
+            file.WriteLine("        {");
             string[] fields = fieldlist.Split(", ");
             foreach (string field in fields)
             {
                 string name = field.Split(" ")[1];
-                file.WriteLine($"       this.{name} = {name};");
+                file.WriteLine($"          this.{name} = {name};");
             }
-            file.WriteLine("}");
+            file.WriteLine("        }");
             file.WriteLine();
             foreach (string field in fields)
             {
                 file.WriteLine("    "+field + ";");
             }
-            file.WriteLine("}");
+            file.WriteLine("    }");
+            
         }
     }
     //template class
