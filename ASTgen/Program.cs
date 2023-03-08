@@ -66,22 +66,10 @@ namespace ASTgen
             file.WriteLine("    }");
             
         }
-    }
-    //template class
-    abstract class Expr
-    {
-        sealed class Binary : Expr
+        private void define_visitor(StreamWriter file, string basename,List<string> types)
         {
-            Binary(Expr left, Token op , Expr right)
-            {
-                this.left = left;
-                this.op = op;
-                this.right = right;
-            }
-            Expr left;
-            Token op;
-            Expr right;
+            file.WriteLine("        public interface visitor");
+            file.WriteLine("        {");
         }
     }
-    //template class
 }

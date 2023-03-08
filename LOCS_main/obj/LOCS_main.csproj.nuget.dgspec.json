@@ -1,17 +1,17 @@
 {
   "format": 1,
   "restore": {
-    "C:\\Users\\AEPBS\\source\\repos\\LOCS_main\\LOCS_main\\LOCS_main.csproj": {}
+    "C:\\Users\\AEPBS\\Documents\\GitHub\\CSC\\LOCS_main\\LOCS_main.csproj": {}
   },
   "projects": {
-    "C:\\Users\\AEPBS\\source\\repos\\LOCS_main\\LOCS_main\\LOCS_main.csproj": {
+    "C:\\Users\\AEPBS\\Documents\\GitHub\\CSC\\LOCS_main\\LOCS_main.csproj": {
       "version": "1.0.0",
       "restore": {
-        "projectUniqueName": "C:\\Users\\AEPBS\\source\\repos\\LOCS_main\\LOCS_main\\LOCS_main.csproj",
+        "projectUniqueName": "C:\\Users\\AEPBS\\Documents\\GitHub\\CSC\\LOCS_main\\LOCS_main.csproj",
         "projectName": "LOCS_main",
-        "projectPath": "C:\\Users\\AEPBS\\source\\repos\\LOCS_main\\LOCS_main\\LOCS_main.csproj",
+        "projectPath": "C:\\Users\\AEPBS\\Documents\\GitHub\\CSC\\LOCS_main\\LOCS_main.csproj",
         "packagesPath": "C:\\Users\\AEPBS\\.nuget\\packages\\",
-        "outputPath": "C:\\Users\\AEPBS\\source\\repos\\LOCS_main\\LOCS_main\\obj\\",
+        "outputPath": "C:\\Users\\AEPBS\\Documents\\GitHub\\CSC\\LOCS_main\\obj\\",
         "projectStyle": "PackageReference",
         "configFilePaths": [
           "C:\\Users\\AEPBS\\AppData\\Roaming\\NuGet\\NuGet.Config",

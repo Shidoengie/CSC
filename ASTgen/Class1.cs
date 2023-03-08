@@ -10,7 +10,7 @@ namespace ASTgen
     {
     }
     //template class
-    /*
+
     abstract class Expr
     {
         public abstract void accept(Pasteryvisitor pasteryvisitor);
@@ -25,8 +25,7 @@ namespace ASTgen
         {
             void visitbin(bread bread);
         }
-    */
-    
-    
+
+    }
 }
 

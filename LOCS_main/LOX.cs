@@ -9,10 +9,17 @@ namespace LOCS
 {
     public class LOX
     {
+        //can you go to astgen? its a project
         static bool had_error;
         
         public static void Main(string[] args)
         {
+            /*
+            while (true)
+            {
+                Console.WriteLine("pee pant");
+            }
+            */
             if (args.Length > 1)
             {
                 Console.WriteLine("Usage: csc[script]");

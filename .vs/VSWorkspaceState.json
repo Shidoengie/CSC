@@ -1,7 +1,8 @@
 {
   "ExpandedNodes": [
-    ""
+    "",
+    "\\ASTgen"
   ],
-  "SelectedNode": "\\CSC lexer.sln",
+  "SelectedNode": "\\ASTgen\\Program.cs",
   "PreviewInSolutionExplorer": false
 }

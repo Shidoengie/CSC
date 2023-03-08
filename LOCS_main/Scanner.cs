@@ -101,69 +101,38 @@ namespace LOCS
                     break;
 
                 case '+':
-                    if (match('+')) { AddToken(PLUS_PLUS); }
-                    else if (match('=')) { AddToken(PLUS_EQUAL); }
-                    else { AddToken(PLUS); }
+                    if (match('+')) { 
+                        AddToken(PLUS_PLUS);
+                        if (!isAtEnd())
+                        {
+                            LOX.error(line, "invalid literal");
+                        }
+                    }
+                    else if (match('=')) { 
+                        AddToken(PLUS_EQUAL); 
+                    }
+                    else { 
+                        AddToken(PLUS); 
+                    }
                     break;
 
                 case '-':
-                    if (match('-')) { AddToken(MINUS_MINUS); }
-                    else if (match('=')) { AddToken(MINUS_EQUAL); }
-                    else { AddToken(MINUS); }
+                    if (match('-')) { 
+                        AddToken(MINUS_MINUS);
+                        if (!isAtEnd())
+                        {
+                            LOX.error(line, "invalid literal");
+                        }
+                    }
+                    else if (match('=')) { 
+                        AddToken(MINUS_EQUAL); 
+                    }
+                    else { 
+                        AddToken(MINUS); 
+                    }
                     break;
 
                 // keywords
-                case 'o':
-                    if (match('r')) { AddToken(OR); }
-                    break;
-
-                case 'a':
-                    if (match_string("nd")) { AddToken(AND); }
-                    break;
-
-                case 'c':
-                    if (match_string("lass")) { AddToken(CLASS); }
-                    else if (match_string("onst")) { AddToken(CONST); }
-                    break;
-
-                case 'e':
-                    if (match_string("lse")) { AddToken(ELSE); }
-                    else if (match_string("lif")) { AddToken(ELIF); }
-                    break;
-
-                case 'f':
-                    if (match_string("alse")) { AddToken(FALSE); }
-                    else if (match_string("unc")) { AddToken(FUNC); }
-                    else if (match_string("or")) { AddToken(FOR); }
-                    break;
-
-                case 'i':
-                    if (match('f')) { AddToken(IF); }
-                    else if (match('n')) { AddToken(IN); }
-                    break;
-
-                case 'n':
-                    if (match_string("ot")) { AddToken(NOT); }
-                    else if (match_string("il")) { AddToken(NIL); }
-                    break;
-
-                case 'r':
-                    if (match_string("eturn")) { AddToken(RETURN); }
-                    break;
-
-                case 's':
-                    if (match_string("uper")) { AddToken(SUPER); }
-                    break;
-
-                case 't':
-                    if (match_string("his")) { AddToken(THIS); }
-                    else if (match_string("rue")) { AddToken(TRUE); }
-                    break;
-
-                case 'w':
-                    if (match_string("hile")) { AddToken(WHILE); }
-                    break;
-
                 default:
                     if (isDigit(c))
                     {
@@ -324,17 +293,20 @@ namespace LOCS
         };
         private void identifier()
         {
-            string text = source[start..current];
-            Tokentype type = new Tokentype();
-            if (!keywords.TryGetValue(text,out type))
-            {
-                LOX.error(line,"invalid keyword");
-            }
-            
-            if (type == null) type = IDENTIFIER;
-            AddToken(type);
-            AddToken(IDENTIFIER);
-        }
+            while (isAlphaNumeric(peek()))
+                Advance();
 
+            // See if the identifier is a reserved word.
+            string text = source.Substring(start, current - start);
+
+            if (keywords.ContainsKey(text))
+            {
+                AddToken(keywords[text]);
+            }
+            else
+            {
+                AddToken(IDENTIFIER);
+            }
+        }
     }
 }
