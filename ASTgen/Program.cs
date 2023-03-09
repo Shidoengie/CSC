@@ -66,10 +66,18 @@ namespace ASTgen
             file.WriteLine("    }");
             
         }
-        private void define_visitor(StreamWriter file, string basename,List<string> types)
+        private void define_visitor(StreamWriter file, string baseName,List<string> types)
         {
             file.WriteLine("        public interface visitor");
             file.WriteLine("        {");
+            foreach (var child in types)
+            {
+                var name = child.Split(":")[0].Trim();
+
+                file.WriteLine($"        T Visit{name}{baseName}({baseName}.{name} {baseName.ToLower()});");
+            }
+
+            file.WriteLine("    }");
         }
     }
 }

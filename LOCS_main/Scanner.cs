@@ -290,6 +290,8 @@ namespace LOCS
             { "var", VAR },
             { "const", CONST },
             { "in", IN },
+            {"print",PRINT},
+            {"input",INPUT }
         };
         private void identifier()
         {
